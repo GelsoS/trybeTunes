@@ -56,7 +56,7 @@ class Login extends React.Component {
       >
 
         <form>
-          {loading ? <Loading /> : ''}
+          {loading && <Loading />}
           <label htmlFor="login">
             Nome:
             <input
