@@ -36,3 +36,23 @@ form {
   text-align: center;
 }
 
+.audio {
+  background-color: rgb(219, 245, 245);
+  border-radius: 20px;
+  margin: 10px;
+  text-align: center;
+}
+
+.audio:hover {
+  background: linear-gradient(120deg, #03a9f4, #f441a5, #ffeb3b, #03f403);
+}
+
+.album {
+  background-color: rgb(179, 245, 217);
+  border-radius: 18px;
+  height: 200px;
+  justify-content: center;
+  margin: 5px;
+  text-align: center;
+  width: 150px;
+}

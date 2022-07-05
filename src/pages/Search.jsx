@@ -74,7 +74,7 @@ class Search extends React.Component {
            type="text"
            data-testid="search-artist-input"
            onChange={ (m) => this.input(m.target.value) }
-           placeholder="Nome"
+           placeholder="Nome do artista"
          />
          <button
            data-testid="search-artist-button"
