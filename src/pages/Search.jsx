@@ -1,5 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from './Header';
+import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import Loading from './Loading';
+import './styles/musicas.css';
 
 class Search extends React.Component {
   constructor() {
@@ -7,7 +11,14 @@ class Search extends React.Component {
     this.state = {
       botao: true,
       input: '',
+      mostrar: true,
+      loading: false,
+      result: false,
     };
+  }
+
+  componentDidMount() {
+    this.form();
   }
 
   input = (param) => {
@@ -35,29 +46,101 @@ class Search extends React.Component {
     );
   }
 
-  render() {
-    const { botao } = this.state;
-    return (
-      <div data-testid="page-search">
-        <Header />
-        <p>Component Search</p>
-        <form>
-          <input
-            type="text"
-            data-testid="search-artist-input"
-            onChange={ (m) => this.input(m.target.value) }
-          />
-          <button
-            data-testid="search-artist-button"
-            type="button"
-            disabled={ botao }
-          >
-            Pesquisar
-
-          </button>
-        </form>
-      </div>
+  limpar = async () => {
+    const { input } = this.state;
+    this.setState(
+      {
+        mostrar: false,
+        loading: true,
+      },
+    );
+    const musicas = await searchAlbumsAPI(input);
+    this.setState(
+      {
+        mostrar: true,
+        loading: false,
+        result: true,
+        musicas,
+      },
     );
   }
+
+ form = () => {
+   const { mostrar, botao, input } = this.state;
+   if (mostrar) {
+     return (
+       <form>
+         <input
+           type="text"
+           data-testid="search-artist-input"
+           onChange={ (m) => this.input(m.target.value) }
+           placeholder="Nome"
+         />
+         <button
+           data-testid="search-artist-button"
+           type="submit"
+           disabled={ botao }
+           value={ input }
+           onClick={ this.limpar }
+         >
+           Pesquisar
+
+         </button>
+       </form>
+     );
+   }
+ }
+
+ array = () => {
+   const { musicas } = this.state;
+   return (
+     <div className="musicas">
+       { musicas.map((m, i) => (
+         <div className="musica" key={ i }>
+           <p>{i}</p>
+           <img src={ m.artworkUrl100 } alt={ m.artistName } />
+           <p>{m.artistName}</p>
+           <p>{m.collectionName}</p>
+           <p>{m.releaseDate}</p>
+           <Link
+             data-testid={ `link-to-album-${m.collectionId}` }
+             to={ `/album/${m.collectionId}` }
+           >
+             {m.collectionId}
+
+           </Link>
+         </div>))}
+     </div>);
+ }
+
+ resultado = () => {
+   const { input, musicas } = this.state;
+
+   return (
+
+     <div>
+       <p>
+         Resultado de álbuns de:
+         {' '}
+         {input}
+       </p>
+       { musicas.length === 0
+         ? 'Nenhum álbum foi encontrado'
+         : this.array()}
+     </div>
+   );
+ }
+
+ render() {
+   const { mostrar, loading, result } = this.state;
+   return (
+     <div data-testid="page-search">
+       <Header />
+       { mostrar && this.form()}
+       { loading && <Loading />}
+       { result && this.resultado()}
+     </div>
+   );
+ }
 }
 export default Search;

@@ -19,12 +19,10 @@ class App extends React.Component {
             component={ Login }
           />
           <Route
-            exact
             path="/search"
             component={ Search }
           />
           <Route
-            exact
             path="/album/:id"
             component={ Album }
           />
@@ -34,17 +32,14 @@ class App extends React.Component {
             component={ Favorites }
           />
           <Route
-            exact
             path="/profile/edit"
             component={ ProfileEdit }
           />
           <Route
-            exact
             path="/profile"
             component={ Profile }
           />
           <Route
-            exact
             path="*"
             component={ NotFound }
           />
