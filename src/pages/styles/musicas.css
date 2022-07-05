@@ -1,0 +1,38 @@
+.musicas {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.musica {
+  background-color: rgb(219, 245, 245);
+  border-radius: 18px;
+  height: 300px;
+  justify-content: center;
+  margin: 5px;
+  text-align: center;
+  width: 150px;
+}
+
+.musica:hover {
+  background: linear-gradient(120deg, #03a9f4, #f441a5, #ffeb3b, #03f403);
+}
+
+button {
+  background: linear-gradient(90deg, cyan, white);
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  outline: 0;
+  padding: 5px;
+}
+
+input {
+  border-radius: 10px;
+  outline: none;
+  padding: 4px;
+}
+
+form {
+  text-align: center;
+}
+
