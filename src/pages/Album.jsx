@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import getMusics from '../services/musicsAPI';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Header from './Header';
 import './styles/musicas.css';
 import Loading from './Loading';
@@ -12,8 +12,10 @@ class Album extends React.Component {
     this.music = this.music.bind(this);
     this.MusicCard = this.MusicCard.bind(this);
     this.favoriteS = this.favoriteS.bind(this);
+    this.getSongs = this.getSongs.bind(this);
 
     this.state = {
+      musicas: '',
       musics: [],
       filtro: [],
       cheker: [],
@@ -23,27 +25,24 @@ class Album extends React.Component {
 
   componentDidMount() {
     this.music();
+    this.getSongs();
   }
 
-  // componentDidUpdate(prevProps, prevState){
-
-  // }
-
-  condicao = async (obj, id) => {
-    const { cheker } = this.state;
-    if (cheker.some((e) => e.trackId !== id)) {
-      this.setState(
-        {
-          delay: true,
-        },
-      );
-      await addSong(obj);
-      this.setState(
-        {
-          delay: false,
-        },
-      );
-    }
+  async getSongs() {
+    this.setState(
+      {
+        delay: false,
+      },
+    );
+    const musicas = await getFavoriteSongs();
+    this.setState((prev) => (
+      {
+        musicas: [...prev.musicas, ...musicas],
+        cheker: [...musicas.map((a) => a.trackId)],
+        delay: false,
+      }), this.favoriteS);
+    // console.log('musicas-->  ',this.state.musicas);
+    // console.log('chekcers--> ',this.state.cheker);
   }
 
   async music() {
@@ -53,31 +52,23 @@ class Album extends React.Component {
     this.setState(
       {
         filtro: artista,
-        musics: resto, // musicas.filter((a) => a.wrapperType === 'track'),
+        musics: resto,
       },
     );
   }
 
-  favoriteS(obj, id) {
-    // const { cheker } = this.state;
-
+  async favoriteS(obj, id) {
     this.setState((prev) => (
       {
         cheker: [...prev.cheker, id],
-      }), () => this.condicao(obj, id));
-
-    // console.log(id);
-    // this.setState((prev) => (
-    //   {
-    //     cheker: [...prev.cheker, id],
-    //     delay: true,
-    //   }), async () => {
-    //   await addSong(obj);
-    //   this.setState((
-    //     {
-    //       delay: false }));
-    // });
-    // console.log(obj);
+        delay: true,
+      }));
+    await addSong(obj);
+    this.setState(
+      {
+        delay: false,
+      },
+    );
   }
 
   MusicCard() {
