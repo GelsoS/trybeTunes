@@ -96,7 +96,10 @@ class Search extends React.Component {
    return (
      <div className="musicas">
        { musicas.map((m, i) => (
-         <div className="musica" key={ i }>
+         <div
+           className="musica"
+           key={ i }
+         >
            <p>{i}</p>
            <img src={ m.artworkUrl100 } alt={ m.artistName } />
            <p>{m.artistName}</p>

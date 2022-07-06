@@ -28,3 +28,7 @@
   text-transform: uppercase;
 }
 
+.loading {
+  background-color: aqua;
+  text-align: center;
+}
