@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import getMusics from '../services/musicsAPI';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Header from './Header';
 import './styles/musicas.css';
 import Loading from './Loading';
@@ -57,18 +57,34 @@ class Album extends React.Component {
     );
   }
 
-  async favoriteS(obj, id) {
-    this.setState((prev) => (
-      {
-        cheker: [...prev.cheker, id],
-        delay: true,
-      }));
-    await addSong(obj);
-    this.setState(
-      {
-        delay: false,
-      },
-    );
+  async favoriteS(obj, id, checked) {
+    if (checked === false) {
+      // console.log(`checked?--->${checked}    id--->${id}`);
+      this.setState(
+        {
+          delay: true,
+        },
+      );
+      await removeSong(obj);
+      this.setState((prev) => (
+        {
+          delay: false,
+          cheker: [...prev.cheker.filter((a) => a !== id)],
+        }
+      ));
+    } else {
+      this.setState((prev) => (
+        {
+          cheker: [...prev.cheker, id],
+          delay: true,
+        }));
+      await addSong(obj);
+      this.setState(
+        {
+          delay: false,
+        },
+      );
+    }
   }
 
   MusicCard() {
@@ -91,7 +107,8 @@ class Album extends React.Component {
                     data-testid={ `checkbox-music-${p.trackId}` }
                     type="checkbox"
                     checked={ cheker.includes(p.trackId) }
-                    onChange={ () => this.favoriteS(musics[i], p.trackId) }
+                    onChange={ (a) => this.favoriteS(musics[i],
+                      p.trackId, a.target.checked) }
                   />
 
                 </label>

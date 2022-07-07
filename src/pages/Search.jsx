@@ -102,8 +102,8 @@ class Search extends React.Component {
          >
            <p>{i}</p>
            <img src={ m.artworkUrl100 } alt={ m.artistName } />
+           <p><b>{m.collectionName}</b></p>
            <p>{m.artistName}</p>
-           <p>{m.collectionName}</p>
            <p>{m.releaseDate}</p>
            <Link
              data-testid={ `link-to-album-${m.collectionId}` }
