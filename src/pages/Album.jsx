@@ -59,7 +59,6 @@ class Album extends React.Component {
 
   async favoriteS(obj, id, checked) {
     if (checked === false) {
-      // console.log(`checked?--->${checked}    id--->${id}`);
       this.setState(
         {
           delay: true,
