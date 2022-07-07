@@ -95,7 +95,7 @@ class Album extends React.Component {
   render() {
     const { delay } = this.state;
     return (
-      <div data-testid="page-album">
+      <div data-testid="page-favorites">
         <Header />
         {delay ? <Loading /> : this.MusicCard()}
       </div>
