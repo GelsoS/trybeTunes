@@ -9,26 +9,49 @@
   font-weight: 900;
   height: 30px;
   text-align: center;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .ul {
   display: flex;
-  justify-content: center;
   padding: 2px 10px;
 }
 
 .ul li {
   background: linear-gradient(yellow, cyan, white);
-  background-color: aqua;
-  border-radius: 9px;
+  border: solid 2px white;
   list-style: none;
-  margin-left: 20px;
-  padding: 3px 5px;
-  text-transform: uppercase;
+  padding: 6px 1px;
+  text-align: center;
+  /* text-transform: uppercase; */
+  width: 100%;
+}
+
+.links {
+  text-decoration: none;
 }
 
 .loading {
   background-color: aqua;
   text-align: center;
+}
+
+
+.perfil {
+  margin-left: 30%;
+  margin-top: 5px;
+  padding: 5px;
+  width: 300px;
+}
+
+.link {
+  border: solid 2px  rgb(63, 191, 250);
+  border-radius: 5px;
+  color: rgb(63, 191, 250);
+  padding: 2px 4px;
+  text-decoration: none;
+}
+
+.perfil :nth-child( n+3 ) {
+  padding: 10px;
 }
