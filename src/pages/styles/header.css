@@ -9,7 +9,7 @@
   font-weight: 900;
   height: 30px;
   text-align: center;
-  /* text-transform: uppercase; */
+  text-transform: uppercase;
 }
 
 .ul {
@@ -23,7 +23,7 @@
   list-style: none;
   padding: 6px 1px;
   text-align: center;
-  /* text-transform: uppercase; */
+  text-transform: uppercase;
   width: 100%;
 }
 
