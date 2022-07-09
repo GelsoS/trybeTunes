@@ -55,3 +55,14 @@
 .perfil :nth-child( n+3 ) {
   padding: 10px;
 }
+
+.edit {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30%;
+  width: 300px;
+}
+
+textarea {
+  resize: none;
+}
