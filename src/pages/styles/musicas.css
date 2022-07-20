@@ -9,6 +9,7 @@
   height: 300px;
   justify-content: center;
   margin: 5px;
+  margin-top: 20px;
   text-align: center;
   width: 150px;
 }
@@ -17,22 +18,23 @@
   background: linear-gradient(120deg, #03a9f4, #f441a5, #ffeb3b, #03f403);
 }
 
-button {
-  background: linear-gradient(90deg, cyan, white);
-  border: none;
+
+.loginButon {
+  background: #3be2ff;
   border-radius: 10px;
-  font-weight: 600;
-  outline: 0;
-  padding: 5px;
+  padding: 5px 10px;
 }
 
+
 input {
+  border: solid 1px #03a9f4;
   border-radius: 10px;
   outline: none;
   padding: 4px;
 }
 
-form {
+.formLogin {
+  justify-content: space-around;
   text-align: center;
 }
 
@@ -56,3 +58,19 @@ form {
   text-align: center;
   width: 150px;
 }
+
+.id {
+  background-color: #03a9f4;
+  color: white;
+  display: block;
+  margin-top: 5%;
+  padding: 2px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* .musica :nth-child( 6 ) {
+  color: red;
+  grid-area: auto;
+} */

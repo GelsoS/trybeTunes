@@ -128,6 +128,7 @@ class ProfileEdit extends React.Component {
                 value={ image }
                 name="image"
                 type="text"
+                placeholder="Url da imagem"
                 data-testid="edit-input-image"
                 onChange={ (a) => this.input(a) }
 

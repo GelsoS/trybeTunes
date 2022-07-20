@@ -106,11 +106,11 @@ class Search extends React.Component {
            <p>{m.artistName}</p>
            <p>{m.releaseDate}</p>
            <Link
+             className="id"
              data-testid={ `link-to-album-${m.collectionId}` }
              to={ `/album/${m.collectionId}` }
            >
-             {m.collectionId}
-
+             Musicas
            </Link>
          </div>))}
      </div>);

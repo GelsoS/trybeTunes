@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
 import Loading from './Loading';
+import './styles/login.css';
 
 class Login extends React.Component {
   constructor() {
@@ -52,23 +53,26 @@ class Login extends React.Component {
     const { habilitado, loading } = this.state;
     return (
       <div
+        className="login"
         data-testid="page-login"
       >
 
-        <form>
+        <form className="formLogin">
           {loading && <Loading />}
           <label htmlFor="login">
             Nome:
             <input
+              className="input"
               name="input"
               type="text"
               data-testid="login-name-input"
-              placeholder="Nome"
+              placeholder="Nome de usuario"
               onChange={ (e) => this.nome(e) }
             />
           </label>
 
           <button
+            className="loginButon"
             disabled={ habilitado }
             type="button"
             data-testid="login-submit-button"

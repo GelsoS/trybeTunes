@@ -38,6 +38,8 @@
 
 
 .perfil {
+  display: flex;
+  flex-direction: column;
   margin-left: 30%;
   margin-top: 5px;
   padding: 5px;
@@ -65,4 +67,9 @@
 
 textarea {
   resize: none;
+}
+
+.foto {
+  border-radius: 20px;
+  width: 300px;
 }

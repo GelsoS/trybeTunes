@@ -1,0 +1,10 @@
+/* * {
+  background: url('./music.jpg');
+}
+*/
+
+.login {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20%;
+}

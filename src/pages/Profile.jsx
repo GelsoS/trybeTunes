@@ -47,7 +47,7 @@ class Profile extends React.Component {
         <Header />
         {loading && <Loading /> }
         <div className="perfil">
-          <img src={ image } alt="foto" data-testid="profile-image" />
+          <img src={ image } alt="foto" className="foto" data-testid="profile-image" />
           <Link to="/profile/edit" className="link">Editar perfil</Link>
 
           <p>{nome}</p>
