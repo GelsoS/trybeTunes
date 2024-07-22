@@ -100,7 +100,6 @@ class Search extends React.Component {
            className="musica"
            key={ i }
          >
-           <p>{i}</p>
            <img src={ m.artworkUrl100 } alt={ m.artistName } />
            <p><b>{m.collectionName}</b></p>
            <p>{m.artistName}</p>

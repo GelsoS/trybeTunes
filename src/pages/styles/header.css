@@ -1,75 +1,48 @@
-* {
-  margin: 0;
+/* styles/header.css */
+
+header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .headerNome {
-  background: linear-gradient(90deg, coral, orange, yellow, white);
-  color: blue;
-  font-size: larger;
-  font-weight: 900;
-  height: 30px;
-  text-align: center;
-  text-transform: uppercase;
+  font-size: 18px;
+  margin: 0;
 }
 
-.ul {
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
   display: flex;
-  padding: 2px 10px;
 }
 
-.ul li {
-  background: linear-gradient(yellow, cyan, white);
-  border: solid 2px white;
-  list-style: none;
-  padding: 6px 1px;
-  text-align: center;
-  text-transform: uppercase;
-  width: 100%;
+nav ul li {
+  margin-right: 20px;
 }
 
 .links {
+  color: #fff;
   text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.links:hover {
+  color: #f8f9fa;
+}
+
+.links.active {
+  font-weight: bold;
 }
 
 .loading {
-  background-color: aqua;
-  text-align: center;
-}
-
-
-.perfil {
-  display: flex;
-  flex-direction: column;
-  margin-left: 30%;
-  margin-top: 5px;
-  padding: 5px;
-  width: 300px;
-}
-
-.link {
-  border: solid 2px  rgb(63, 191, 250);
-  border-radius: 5px;
-  color: rgb(63, 191, 250);
-  padding: 2px 4px;
-  text-decoration: none;
-}
-
-.perfil :nth-child( n+3 ) {
-  padding: 10px;
-}
-
-.edit {
-  display: flex;
-  flex-direction: column;
-  margin-left: 30%;
-  width: 300px;
-}
-
-textarea {
-  resize: none;
-}
-
-.foto {
-  border-radius: 20px;
-  width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
