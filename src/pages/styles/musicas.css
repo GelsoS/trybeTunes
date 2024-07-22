@@ -1,76 +1,110 @@
+/* styles/musicas.css */
+
+.page-search {
+  padding: 20px;
+}
+
+.page-search p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.form {
+  margin-bottom: 20px;
+}
+
+.form input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+}
+
+.form button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.form button:hover {
+  background-color: #0056b3;
+}
+
 .musicas {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
 }
 
 .musica {
-  background-color: rgb(219, 245, 245);
-  border-radius: 18px;
-  height: 300px;
-  justify-content: center;
-  margin: 5px;
-  margin-top: 20px;
-  text-align: center;
-  width: 150px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
 .musica:hover {
-  background: linear-gradient(120deg, #03a9f4, #f441a5, #ffeb3b, #03f403);
+  transform: translateY(-5px);
 }
 
-
-.loginButon {
-  background: #3be2ff;
-  border-radius: 10px;
-  padding: 5px 10px;
+.musica p {
+  margin: 5px 0;
 }
 
-
-input {
-  border: solid 1px #03a9f4;
-  border-radius: 10px;
-  outline: none;
-  padding: 4px;
-}
-
-.formLogin {
-  justify-content: space-around;
-  text-align: center;
-}
-
-.audio {
-  background-color: rgb(219, 245, 245);
-  border-radius: 20px;
-  margin: 10px;
-  text-align: center;
-}
-
-.audio:hover {
-  background: linear-gradient(120deg, #03a9f4, #f441a5, #ffeb3b, #03f403);
-}
-
-.album {
-  background-color: rgb(179, 245, 217);
-  border-radius: 18px;
-  height: 200px;
-  justify-content: center;
-  margin: 5px;
-  text-align: center;
-  width: 150px;
+.musica img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
 }
 
 .id {
-  background-color: #03a9f4;
-  color: white;
   display: block;
-  margin-top: 5%;
-  padding: 2px;
-  text-align: center;
+  color: #007bff;
   text-decoration: none;
-  text-transform: uppercase;
+  margin-top: 10px;
 }
 
-/* .musica :nth-child( 6 ) {
-  color: red;
-  grid-area: auto;
-} */
+.id:hover {
+  text-decoration: underline;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1000;
+}
+
+.loading .spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #007bff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

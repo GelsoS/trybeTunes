@@ -60,7 +60,6 @@ class Login extends React.Component {
         <form className="formLogin">
           {loading && <Loading />}
           <label htmlFor="login">
-            Nome:
             <input
               className="input"
               name="input"

@@ -5,7 +5,8 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #fd746c, #ff9068);
+  background: rgb(13, 0, 230);
+  background: linear-gradient(24deg, rgba(13, 0, 230, 1) 0%, rgba(37, 234, 237, 0.30996148459383754) 67%, rgba(11, 255, 0, 0.8365721288515406) 100%);
 }
 
 .formLogin {
@@ -24,7 +25,7 @@
   width: 100%;
   padding: 8px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid #04daf7;
   border-radius: 4px;
 }
 
