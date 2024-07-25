@@ -1,5 +1,3 @@
-/* styles/musicas.css */
-
 .page-search {
   padding: 20px;
 }
@@ -42,56 +40,40 @@
   background-color: #0056b3;
 }
 
-.musicas {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-}
-
-.musica {
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.musica:hover {
-  transform: translateY(-5px);
-}
-
-.musica p {
-  margin: 5px 0;
-}
-
-.musica img {
-  width: 100%;
-  height: auto;
-  border-radius: 4px;
-}
-
-.id {
-  display: block;
-  color: #007bff;
-  text-decoration: none;
-  margin-top: 10px;
-}
-
-.id:hover {
-  text-decoration: underline;
-}
-
-.loading {
+.search {
   display: flex;
-  justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
-  z-index: 1000;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.search input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  width: 30%;
+}
+
+.search button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.search button:hover {
+  background-color: #0056b3;
 }
 
 .loading .spinner {
@@ -101,6 +83,97 @@
   width: 30px;
   height: 30px;
   animation: spin 1s linear infinite;
+}
+
+/* Estilo para o container das músicas */
+.musicas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Estilo para cada bloco de música */
+.musica {
+  border: #ccc solid 1px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.musica:hover {
+  transform: translateY(-5px);
+}
+
+.musica img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.musica p {
+  margin: 5px 0;
+}
+
+.musica .id {
+  width: 90%;
+  display: flex;
+  padding: 8px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.musica .id:hover {
+  background-color: #0056b3;
+}
+
+.results {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  /* border: 1px solid #ccc; */
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.results p {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.results p:nth-child(1) {
+  color: #888; /* Cor cinza */
+}
+
+.results p:nth-child(2) {
+  color: dodgerblue; /* Cor dodgerblue */
+}
+
+.results .no-albums {
+  font-style: italic;
+  color: #888;
+}
+
+
+@media (max-width: 600px) {
+  .search {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search input[type="text"] {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
 }
 
 @keyframes spin {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import getMusics from '../services/musicsAPI';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Header from './Header';
-import './styles/musicas.css';
+import './styles/album.css';
 import Loading from './Loading';
 
 class Album extends React.Component {
@@ -90,7 +90,7 @@ class Album extends React.Component {
     const { musics, filtro, cheker } = this.state;
     if (musics.length > 0) {
       return (
-        <div>
+        <div className="collection">
           <div className="album">
             <img src={ filtro.artworkUrl100 } alt={ filtro.artistName } />
             <p data-testid="artist-name">{filtro.artistName}</p>
